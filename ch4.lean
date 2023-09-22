@@ -24,7 +24,7 @@ example : (∀ x, p x ∧ q x) ↔ (∀ x, p x) ∧ (∀ x, q x) :=
   )
 
 
-example : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := sorry
+example : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := sorry -- later done in ch 5 with tactics
 
 
 example : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x := 
