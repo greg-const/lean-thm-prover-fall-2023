@@ -19,3 +19,21 @@ example : (∀ x, p x ∧ q x) ↔ (∀ x, p x) ∧ (∀ x, q x) :=
       (show p y, from (h.left y))
       (show q y, from (h.right y))
   )
+
+
+example : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := sorry
+
+
+example : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x := 
+  assume h : (∀ x, p x) ∨ (∀ x, q x),
+  assume y : α, 
+  or.elim h 
+  (
+  assume hl : (∀ x, p x),
+  or.inl (show p y, from hl y)
+  )
+  (
+  assume hr : (∀ x, q x),
+  or.inr (show q y, from hr y)
+  )
+
