@@ -43,5 +43,18 @@ left, left, apply p,
 cases qr with qr1 qr2,
 left, right, apply qr1,
 right, apply qr2,
+end
 
+example : p ∧ q ↔ q ∧ p :=
+begin
+split,
+intro h,
+split,
+apply h.right,
+apply h.left,
+
+intro h1,
+split,
+apply h1.right,
+apply h1.left,
 end
