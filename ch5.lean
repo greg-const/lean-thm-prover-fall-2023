@@ -27,4 +27,21 @@ variables {p q r s: Prop}
           (assume hr: r, or.inr hr)))
 
 
-  example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) :=
+example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) :=
+begin
+split,
+intro h,
+cases h with pr qr,
+cases pr with pr1 pr2,
+left,apply pr1,
+right, left, apply pr2,
+right, right, apply qr,
+
+intro h,
+cases h with p qr,
+left, left, apply p,
+cases qr with qr1 qr2,
+left, right, apply qr1,
+right, apply qr2,
+
+end
