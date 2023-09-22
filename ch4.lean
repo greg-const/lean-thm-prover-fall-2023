@@ -1,4 +1,4 @@
--- Ch 4 ex 1 
+-- Ch 4 Exercise 1
 variables (α : Type*) (p q : α → Prop)
 
 example : (∀ x, p x ∧ q x) ↔ (∀ x, p x) ∧ (∀ x, q x) := 
@@ -36,4 +36,26 @@ example : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x :=
   assume hr : (∀ x, q x),
   or.inr (show q y, from hr y)
   )
+
+
+-- Exercise 7. This is definitely not optimally written.
+
+import data.int.basic
+
+#check sub_self
+
+example (x : ℤ) : x * 0 = 0 :=
+begin
+have t : (x-x)=0,
+rw sub_self,
+
+have m : 0=(x-x),
+rw t,
+
+rw m,
+rw mul_sub,
+rw sub_self,
+rw sub_self,
+end
+
 
