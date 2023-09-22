@@ -84,3 +84,17 @@ example (p q r : Prop) (hp : p) :
 (p ∨ q ∨ r) ∧ (q ∨ p ∨ r) ∧ (q ∨ r ∨ p) :=
 by simp *
 
+-- Chapter 4 ex 1 
+
+variables (α : Type*) (p q : α → Prop)
+example : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := 
+begin
+assume h : (∀ x, p x → q x),
+assume h1: (∀ x, p x),
+assume y : α,
+have j := h1 y,
+have k := h y,
+
+show q y, from k j
+end
+
