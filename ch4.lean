@@ -1,3 +1,6 @@
+import data.int.basic
+
+
 -- Ch 4 Exercise 1
 variables (α : Type*) (p q : α → Prop)
 
@@ -39,8 +42,6 @@ example : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x :=
 
 
 -- Exercise 7. This is definitely not optimally written.
-
-import data.int.basic
 
 #check sub_self
 
