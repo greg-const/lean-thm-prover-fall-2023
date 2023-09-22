@@ -1,5 +1,7 @@
 variables {p q r s: Prop}
 
+
+-- section of Ch 3 Exercise 1 
 -- commutativity of ∧ and ∨
   example : p ∧ q ↔ q ∧ p :=
     iff.intro
@@ -26,7 +28,7 @@ variables {p q r s: Prop}
           (assume hq: q, or.inl (or.inr hq))
           (assume hr: r, or.inr hr)))
 
-
+-- Ch 3 Exercise 1 Done in tactic mode 
 example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) :=
 begin
 split,
@@ -58,3 +60,24 @@ split,
 apply h1.right,
 apply h1.left,
 end
+
+--- Better braces usage:
+
+example (p q r : Prop) : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) :=
+begin
+  apply iff.intro,
+  { 
+    intro h,
+    cases h.right with hq hr,
+    { show (p ∧ q) ∨ (p ∧ r), from or.inl ⟨h.left, hq⟩ },
+    { show (p ∧ q) ∨ (p ∧ r), from or.inr ⟨h.left, hr⟩ }
+  },
+  {
+    intro h,  
+    cases h with hpq hpr,
+    { show p ∧ (q ∨ r), from ⟨hpq.left, or.inl hpq.right⟩ },
+    { show p ∧ (q ∨ r), from ⟨hpr.left, or.inr hpr.right⟩ }
+  }
+end
+
+
