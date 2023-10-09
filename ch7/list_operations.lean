@@ -1,3 +1,4 @@
+import data.nat.basic
 namespace hidden
 
 inductive list (α : Type*)
@@ -50,6 +51,51 @@ theorem append_assoc (r s t : list α) :
   end
 -- END
 
+def length : list α →  ℕ
+| nil := 0
+| (cons a t) := 1 + length t
+
+
+
+theorem eq_list_eq_length (s t : list α) (h : s = t) : s.length = t.length :=
+begin
+induction s with c hc,
+rw length,
+have j : (t=nil),
+begin
+rw h,
+end,
+rw j,
+rw length,
+
+have m : (t=c::hc),
+begin
+rw h,
+end,
+rw h,
+end
+
+theorem length_sum (s t : list α) : length (s++t) = length s + length t :=
+begin
+induction s with c hc,
+have j : (nil++t = t),
+begin
+apply nil_append
+end,
+rw j,
+rw length,
+rw zero_add, -- imported data.nat.basic to get this
+
+rw length at *,
+rw append at *,
+rw length,
+rw s_ih,
+rw add_assoc,
+end
+
+#eval length [1, 2, 3, 4, 5]
+
 end list
+
 
 end hidden
