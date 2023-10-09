@@ -18,7 +18,7 @@ theorem add_succ (m n : nat) : m + succ n = succ (m + n) := rfl
 
 theorem zero_add : ∀ n, zero + n = n
 | zero     := rfl
-| (succ n) := 
+| (succ n) := -- congr_arg succ (zero_add n)
 begin
 rw add,
 rw zero_add,
