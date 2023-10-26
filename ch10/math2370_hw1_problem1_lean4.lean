@@ -25,7 +25,7 @@ U ⊓ (V + W.map U.subtype) = U ⊓ V + W.map U.subtype := by
   {
     intro z
     intros h1
-    rw [mem_inf] at h1
+    rw [mem_inf] at h1 -- had to use this instead of cases. trying to figure out why
     have h1_left : z ∈ U := by {exact h1.left}
     have h1_right : z ∈ V + map (Submodule.subtype U) W := by {exact h1.right}
 
