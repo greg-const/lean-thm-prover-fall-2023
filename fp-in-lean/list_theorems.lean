@@ -48,3 +48,41 @@ theorem list_thm (ls1 : List Nat) (ls2 : List Nat) :
     | cons => {apply append_length_comm}
   }
 }
+
+
+
+def NonTail.sum : List Nat → Nat
+  | [] => 0
+  | x :: xs => x + sum xs
+
+
+def Tail.sumHelper (soFar : Nat) : List Nat → Nat
+| [] => soFar
+| x :: xs => sumHelper (x + soFar) xs
+
+def Tail.sum (xs : List Nat) : Nat :=
+  Tail.sumHelper 0 xs
+
+
+
+theorem non_tail_sum_eq_helper_accum (xs : List Nat) :
+    (n : Nat) → n + NonTail.sum xs = Tail.sumHelper n xs := by
+  induction xs with
+  | nil => intro n ; rfl
+  | cons y ys ih => {
+    intro n
+    simp [NonTail.sum, Tail.sumHelper]
+    rw [←Nat.add_assoc]
+    rw [Nat.add_comm y n]
+    exact ih (n+y)
+  }
+
+theorem non_tail_sum_eq_tail_sum : NonTail.sum = Tail.sum := by
+  funext xs
+  induction xs with
+  | nil => rfl
+  | cons y ys =>
+    {
+      simp [NonTail.sum, Tail.sum, Tail.sumHelper]
+      exact non_tail_sum_eq_helper_accum ys y
+    }
