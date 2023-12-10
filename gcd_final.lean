@@ -14,10 +14,10 @@ def euclid_gcd (a : Nat) (b : Nat) : Nat :=
     euclid_gcd (Nat.succ l) (x % Nat.succ l)
 termination_by euclid_gcd a b => b
 
-#eval euclid_gcd 0 9 -- special case..
+#eval euclid_gcd 0 9 -- 0's are special case..
 #eval euclid_gcd 20 7 -- coprime
 #eval euclid_gcd 24 36
-#eval euclid_gcd 9 0 -- special case ? This could be danger
+
 
 
 theorem euc_gcd_ab_eq_gcd_ba (a : Nat) (b : Nat) : euclid_gcd a b = euclid_gcd b a := by
