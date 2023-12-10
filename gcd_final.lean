@@ -323,7 +323,12 @@ theorem euclid_gcd_is_gcd_a_b_iff_euclid_gcd_b_a_mod_b_is_gcd_b_a_mod_b (a : Nat
 }
 theorem combine_step (a : Nat) (b : Nat) : n_is_gcd (euclid_gcd a b) a b ↔ n_is_gcd (euclid_gcd b (a % b)) b (a%b) := by {exact euclid_gcd_is_gcd_a_b_iff_euclid_gcd_b_a_mod_b_is_gcd_b_a_mod_b a b}
 
-theorem k : (n_is_gcd 3 6 9) := by
+-- this is an example of how it might be difficult to get 'evidence'
+-- that some number is the gcd of two literals.
+
+-- However, after we prove that n_is_gcd x a b <-> euclid_gcd x a b, we obtain this proof easily.
+
+example : (n_is_gcd 3 6 9) := by 
 {
   unfold n_is_gcd
   simp
