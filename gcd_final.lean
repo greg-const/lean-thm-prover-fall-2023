@@ -467,4 +467,9 @@ theorem n_is_gcd_iff_euclid :∀(a : Nat) (b : Nat) (x : Nat) (_ : a > b) (_ : b
 
 #check euclid_alg_works 8 6 (by simp) (by simp)
 
-def x : n_is_gcd 2 8 2 := ((n_is_gcd_iff_euclid _ _ _ (by simp) (by simp)).mpr) (rfl)
+example : n_is_gcd 2 8 2 := ((n_is_gcd_iff_euclid _ _ _ (by simp) (by simp)).mpr) (rfl)
+
+-- now we can obtain evidence that 3 is the gcd of 6 and 9 with automatic reasoning.
+-- note that gcd_ab_eq_gcd_ba is used to make a > b, but this isn't really necessary
+example : n_is_gcd 3 6 9 := gcd_ab_eq_gcd_ba (((n_is_gcd_iff_euclid _ _ _ (by simp) (by simp)).mpr) (rfl))
+
