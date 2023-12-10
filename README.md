@@ -8,7 +8,7 @@
 ## Some Highlights
 - [ch8](/ch8/) contains the inductive definition of the 'aexpr' arithmetic expression type, with some proofs that basic simplifications of expressions maintain correctness on all inputs.
 
-- [ch10](/ch10/) contains the formalization of a Linear Algebra homework problem in lean 3 and 4. 
+- [ch_10](/ch_10/) contains the formalization of a Linear Algebra homework problem in lean 3 and 4. 
 
 - [fp-in-lean](/fp-in-lean/) has some functional programming exercises, as well as an I/O terminal application which converts an integer to roman numerals.
 
