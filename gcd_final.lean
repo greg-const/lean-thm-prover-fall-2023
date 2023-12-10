@@ -1,6 +1,6 @@
 import Mathlib.Tactic
 
-theorem succ_mod_lt (a : Nat) ( b : Nat) : a % Nat.succ b < Nat.succ b := by
+lemma succ_mod_lt (a : Nat) ( b : Nat) : a % Nat.succ b < Nat.succ b := by
 {
   have h : Nat.succ b > 0 := by {simp}
   exact Nat.mod_lt a h
