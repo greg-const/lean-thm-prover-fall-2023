@@ -9,6 +9,6 @@
 
 - 'ch10' contains the formalization of a Linear Algebra homework problem in lean 3 and 4. 
 
-- 'fp-in-lean' has functional programming exercises
+- 'fp-in-lean' has some functional programming exercises, as well as an I/O terminal application which converts an integer to roman numerals.
 
 - gcd_final.lean contains many auxiliary lemmas about GCD and its properties, as well as a formal verification of Euclid's GCD algorithm.
