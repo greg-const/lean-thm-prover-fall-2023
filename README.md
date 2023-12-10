@@ -5,6 +5,7 @@
 - Note that reading tactic proofs in lean is made easier when stepping through line by line having access to tactic state.
 - Lean 4 has an [interactive online editor](https://lean.math.hhu.de/) and so does Lean 3 [here](https://leanprover-community.github.io/lean-web-editor/).
 
+## Some Highlights
 - 'ch8' contains the inductive definition of the 'aexpr' arithmetic expression type, with some proofs about basic simplifications of expressions maintaining correctness on all inputs.
 
 - 'ch10' contains the formalization of a Linear Algebra homework problem in lean 3 and 4. 
