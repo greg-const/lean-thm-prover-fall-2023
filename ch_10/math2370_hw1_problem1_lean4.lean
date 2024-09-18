@@ -1,4 +1,3 @@
--- LEAN 4 VERSION
 import Mathlib.LinearAlgebra.FiniteDimensional
 
 variable (K : Type u) [Field K]
